@@ -26,6 +26,7 @@ export default class Model {
   setModel() {
     this.model = this.resources.items.galleryModel.scene;
     this.model.scale.set(1, 1, 1);
+    this.model.rotation.y = -Math.PI * 0.5;
     this.scene.add(this.model);
 
     this.model.traverse((child: Child) => {
@@ -39,94 +40,52 @@ export default class Model {
     ) as THREE.Mesh;
     this.setTextrue(room, "room");
 
-    const iconSns = this.model.children.find(
-      (child) => child.name === "icon-sns"
-    ) as THREE.Mesh;
-    this.setTextrue(iconSns, "iconSns");
-
-    const ribbon = this.model.children.find(
-      (child) => child.name === "ribbon"
-    ) as THREE.Mesh;
-    this.setTextrue(ribbon, "ribbon");
-
-    const movingFace = this.model.children.find(
-      (child) => child.name === "moving-sphere"
-    ) as THREE.Mesh;
-    this.setTextrue(movingFace, "movingFace");
-
-    const paperLamp = this.model.children.find(
-      (child) => child.name === "lamp"
-    ) as THREE.Mesh;
-    this.setTextrue(paperLamp, "paperLamp");
-
-    const hexDome = this.model.children.find(
-      (child) => child.name === "dome"
-    ) as THREE.Mesh;
-    this.setTextrue(hexDome, "hexDome");
-
-    const growingTown = this.model.children.find(
-      (child) => child.name === "town"
-    ) as THREE.Mesh;
-    this.setTextrue(growingTown, "growingTown");
-
-    const grassFeather = this.model.children.find(
-      (child) => child.name === "feather"
-    ) as THREE.Mesh;
-    this.setTextrue(grassFeather, "grassFeather");
-
-    const curtain = this.model.children.find(
-      (child) => child.name === "curtain"
-    ) as THREE.Mesh;
-    this.setTextrue(curtain, "curtain");
-
-    const origami = this.model.children.find(
-      (child) => child.name === "origami"
-    ) as THREE.Mesh;
-    this.setTextrue(origami, "origami");
-
-    const twisarc = this.model.children.find(
-      (child) => child.name === "pavilion"
-    ) as THREE.Mesh;
-    this.setTextrue(twisarc, "twisarc");
-
-    const waffle = this.model.children.find(
-      (child) => child.name === "waffle"
-    ) as THREE.Mesh;
-    this.setTextrue(waffle, "waffle");
-
-    const pipeConnection = this.model.children.find(
-      (child) => child.name === "pipe"
-    ) as THREE.Mesh;
-    this.setTextrue(pipeConnection, "pipeConnection");
-
     const louver = this.model.children.find(
       (child) => child.name === "louver"
     ) as THREE.Mesh;
     this.setTextrue(louver, "louver");
 
-    const deformedSphere = this.model.children.find(
-      (child) => child.name === "deform-surf"
+    const objectsDarkColor = this.model.children.find(
+      (child) => child.name === "objectsDarkColor"
     ) as THREE.Mesh;
-    this.setTextrue(deformedSphere, "deformedSphere");
+    this.setTextrue(objectsDarkColor, "objectsDarkColor");
 
-    const textTop = this.model.children.find(
-      (child) => child.name === "text-top"
+    const objectsMiddleColor = this.model.children.find(
+      (child) => child.name === "objectsMiddleColor"
     ) as THREE.Mesh;
-    this.setTextrue(textTop, "textTop");
+    this.setTextrue(objectsMiddleColor, "objectsMiddleColor");
 
-    const textBottom = this.model.children.find(
-      (child) => child.name === "text-bottom"
+    const objectsLightColor = this.model.children.find(
+      (child) => child.name === "objectsLightColor"
     ) as THREE.Mesh;
-    this.setTextrue(textBottom, "textBottom");
+    this.setTextrue(objectsLightColor, "objectsLightColor");
+
   }
 
   setTextrue(mesh: THREE.Mesh, name: string) {
-    const texture = this.resources.items[name];
-    texture.encoding = THREE.sRGBEncoding;
-    texture.flipY = false;
+
+    let color = "";
+    if (name === "room") {
+      color = "#ffffff"
+    } else if (name === "louver") {
+      color = "#f0f8ff"
+    } else if (name === "objectsDarkColor") {
+      color = "#808080"
+
+    } else if (name === "objectsMiddleColor") {
+      color = "#f0f8ff"
+
+    } else if (name === "objectsLightColor") {
+      color = "#ffffff"
+    }
+
+
     if (mesh) {
-      const material = new THREE.MeshBasicMaterial({ map: texture });
-      mesh.material = material;
+      mesh.receiveShadow = true;
+      if (mesh) {
+        const material = new THREE.MeshStandardMaterial({ color: color, side: THREE.DoubleSide });
+        mesh.material = material;
+      }
     }
   }
 }

@@ -29,7 +29,7 @@ export default class Camera {
       0.1,
       100
     );
-    this.instance.position.set(0, 10, 10);
+    this.instance.position.set(10, 10, 25);
     this.scene?.add(this.instance);
   }
   setOrbitComtrols() {
