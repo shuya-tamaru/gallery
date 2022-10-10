@@ -8,10 +8,10 @@ export default class Floors {
   experience: Experience;
   scene: Scene;
   resources: Resources;
-  geometry: any;
-  textures: any;
-  material: any;
-  mesh: any;
+  geometry!: THREE.PlaneGeometry;
+  textures!: { [prop: string]: any };
+  material!: THREE.MeshStandardMaterial;
+  mesh!: THREE.Mesh;
 
   constructor() {
     this.experience = new Experience();
@@ -19,13 +19,13 @@ export default class Floors {
     this.resources = this.experience.resources;
 
     this.setGeometry();
-    this.setTextures();
+    // this.setTextures();
     this.setMaterial();
     this.setMesh();
   }
 
   setGeometry() {
-    this.geometry = new THREE.CircleGeometry(5, 64);
+    this.geometry = new THREE.PlaneGeometry(500, 500);
   }
 
   setTextures() {
@@ -44,14 +44,14 @@ export default class Floors {
 
   setMaterial() {
     this.material = new THREE.MeshStandardMaterial({
-      map: this.textures.color,
-      normalMap: this.textures.normal,
+      color: "#f5f5f5",
     });
   }
 
   setMesh() {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.mesh.rotation.x = -Math.PI * 0.5;
+    this.mesh.position.set(0, -0.6, 0);
     this.mesh.receiveShadow = true;
     this.scene.add(this.mesh);
   }

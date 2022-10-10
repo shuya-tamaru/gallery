@@ -12,12 +12,12 @@ export default class Resources extends EventEmitter {
   items: {} | any;
   toLoad: number;
   loaded: number;
-  loaders: {} | undefined | any;
-  gltfLoader: GLTFLoader | undefined;
-  dracoLoader: DRACOLoader | undefined;
-  textureLoader: THREE.TextureLoader | undefined;
-  cubeTextureLoader: THREE.CubeTextureLoader | undefined;
-  scene: any;
+  loaders!: any;
+  gltfLoader!: any;
+  dracoLoader!: any;
+  textureLoader!: any;
+  cubeTextureLoader!: any;
+  scene!: THREE.Group;
 
   constructor(sources: Source[]) {
     super();

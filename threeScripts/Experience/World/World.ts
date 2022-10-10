@@ -19,12 +19,6 @@ export default class World {
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
 
-    const testMesh = new THREE.Mesh(
-      new THREE.BoxGeometry(1, 1, 1),
-      new THREE.MeshStandardMaterial({ wireframe: false })
-    );
-    this.scene.add(testMesh);
-
     this.resources.on("ready", () => {
       this.floor = new Floors();
       this.model = new Model();

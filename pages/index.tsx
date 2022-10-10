@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import { useEffect } from "react";
-import * as THREE from "three";
 import styles from "../styles/Home.module.css";
 import Experience from "../threeScripts/Experience/Experience";
 
