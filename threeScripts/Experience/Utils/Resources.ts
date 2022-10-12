@@ -4,6 +4,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 
 import { Source } from "../sources";
 import EventEmitter from "./EventEmitter";
+import Load from "./Load";
 
 type File = THREE.CubeTexture | THREE.TextureLoader | DRACOLoader | GLTFLoader;
 
@@ -18,6 +19,7 @@ export default class Resources extends EventEmitter {
   textureLoader!: any;
   cubeTextureLoader!: any;
   scene!: THREE.Group;
+  loadingManager: THREE.LoadingManager;
 
   constructor(sources: Source[]) {
     super();
@@ -26,15 +28,18 @@ export default class Resources extends EventEmitter {
     this.items = {};
     this.toLoad = this.sources.length;
     this.loaded = 0;
+    this.loadingManager = new Load().loadingManager;
 
     this.setLoaders();
     this.startLoading();
   }
 
   setLoaders() {
+
+
     this.loaders = {};
     if (this.loaders) {
-      this.loaders.gltfLoader = new GLTFLoader();
+      this.loaders.gltfLoader = new GLTFLoader(this.loadingManager);
       this.loaders.dracoLoader = new DRACOLoader();
       this.loaders.textureLoader = new THREE.TextureLoader();
       this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader();
