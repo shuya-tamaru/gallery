@@ -12,6 +12,7 @@ export default class Load {
   overlayMesh!: THREE.Mesh<any, any>;
   loadingBar: HTMLDivElement;
   loadingText: HTMLDivElement;
+  text: HTMLSpanElement;
 
   constructor() {
 
@@ -19,15 +20,20 @@ export default class Load {
     this.scene = this.experience.scene;
     this.loadingBar = document.querySelector('#loadingBar') as HTMLDivElement;
     this.loadingText = document.querySelector('#loadingText') as HTMLDivElement;
+    this.text = document.getElementById('#spanText') as HTMLSpanElement;
 
     this.loadingManager = new THREE.LoadingManager(
       () => {
+        this.text.style.cursor = 'pointer';
+        this.loadingText.addEventListener('click', () => {
+          gsap.to(this.overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0 })
+          this.loadingText.style.display = 'none';
+        })
         window.setTimeout(() => {
-          // gsap.to(this.overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0 })
           this.loadingBar.classList.add('ended');
-          this.loadingText.innerHTML = 'Go to Gallery'
           this.loadingBar.style.transform = "";
-        }, 2000)
+          this.text.innerHTML = 'Go to Gallery'
+        }, 1000)
       },
       (itemUrl, itemsLoaded, itemsTotal) => {
         const progressRation = itemsLoaded / itemsTotal;
