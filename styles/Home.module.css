@@ -46,6 +46,19 @@
   cursor: default;
 }
 
+.youtube, .blog  {
+  color: #666;
+  transition: color 0.4s;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.youtube:hover {
+  color: #c4302b;
+}
+.blog:hover {
+  color: #7f7fff;
+}
+
 
 
 @keyframes flash {

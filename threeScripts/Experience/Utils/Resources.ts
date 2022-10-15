@@ -1,10 +1,10 @@
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
-import { Source } from "../sources";
-import EventEmitter from "./EventEmitter";
-import Load from "./Load";
+import { Source } from '../sources';
+import EventEmitter from './EventEmitter';
+import Load from './Load';
 
 type File = THREE.CubeTexture | THREE.TextureLoader | DRACOLoader | GLTFLoader;
 
@@ -35,8 +35,6 @@ export default class Resources extends EventEmitter {
   }
 
   setLoaders() {
-
-
     this.loaders = {};
     if (this.loaders) {
       this.loaders.gltfLoader = new GLTFLoader(this.loadingManager);
@@ -48,21 +46,21 @@ export default class Resources extends EventEmitter {
 
   startLoading() {
     for (const source of this.sources) {
-      if (source.type === "gltfModel") {
+      if (source.type === 'gltfModel') {
         this.loaders.gltfLoader.load(source.path, (file: File) => {
           this.sourceLoaded(source, file);
         });
-      } else if (source.type === "dracoModel") {
-        this.loaders.dracoLoader.setDecoderPath("/draco/");
+      } else if (source.type === 'dracoModel') {
+        this.loaders.dracoLoader.setDecoderPath('/draco/');
         this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader);
         this.loaders.gltfLoader.load(source.path, (file: File) => {
           this.sourceLoaded(source, file);
         });
-      } else if (source.type === "texture") {
+      } else if (source.type === 'texture') {
         this.loaders.textureLoader.load(source.path, (file: File) => {
           this.sourceLoaded(source, file);
         });
-      } else if (source.type === "cubeTexture") {
+      } else if (source.type === 'cubeTexture') {
         this.loaders.cubeTextureLoader.load(source.path, (file: File) => {
           this.sourceLoaded(source, file);
         });
@@ -74,8 +72,8 @@ export default class Resources extends EventEmitter {
     this.items[source.name] = file;
     this.loaded++;
     if (this.loaded === this.toLoad) {
-      console.log("fin");
-      this.trigger("ready");
+      console.log('fin');
+      this.trigger('ready');
     }
   }
 }

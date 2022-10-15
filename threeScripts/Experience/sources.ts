@@ -7,28 +7,29 @@ export type Source = {
 export const sources: Source[] = [
   {
     //cubeTexture
-    name: "environmentMapTexture",
-    type: "cubeTexture",
+    name: 'environmentMapTexture',
+    type: 'cubeTexture',
     path: [
-      "/textures/environmentMap/px.jpg",
-      "/textures/environmentMap/nx.jpg",
-      "/textures/environmentMap/py.jpg",
-      "/textures/environmentMap/ny.jpg",
-      "/textures/environmentMap/pz.jpg",
-      "/textures/environmentMap/nz.jpg",
+      '/textures/environmentMap/px.jpg',
+      '/textures/environmentMap/nx.jpg',
+      '/textures/environmentMap/py.jpg',
+      '/textures/environmentMap/ny.jpg',
+      '/textures/environmentMap/pz.jpg',
+      '/textures/environmentMap/nz.jpg',
     ],
   },
   //model
   {
-    name: "galleryModel",
-    type: "dracoModel",
-    path: "models/gallery/galleryModel.glb",
+    name: 'galleryModel',
+    type: 'dracoModel',
+    path: 'models/gallery/galleryModel.glb',
+  },
+  {
+    name: 'treeModel',
+    type: 'dracoModel',
+    path: 'models/gallery/tree.glb',
   },
 ];
-
-
-
-
 
 // {
 //   name: "curtain",

@@ -1,10 +1,10 @@
-import * as THREE from "three";
+import * as THREE from 'three';
 
-import Experience from "../Experience";
-import Resources from "../Utils/Resources";
-import Environment from "./Environment";
-import Floors from "./Floor";
-import Model from "./Model";
+import Experience from '../Experience';
+import Resources from '../Utils/Resources';
+import Environment from './Environment';
+import Floors from './Floor';
+import Model from './Model';
 
 export default class World {
   experience: Experience;
@@ -19,12 +19,12 @@ export default class World {
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
 
-    this.resources.on("ready", () => {
+    this.resources.on('ready', () => {
       this.floor = new Floors();
       this.model = new Model();
       this.environment = new Environment();
 
-      console.log("reso ready");
+      console.log('reso ready');
     });
   }
 }

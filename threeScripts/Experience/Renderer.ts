@@ -1,8 +1,8 @@
-import * as THREE from "three";
+import * as THREE from 'three';
 
-import Camera from "./Camera";
-import Experience from "./Experience";
-import Sizes from "./Utils/Sizes";
+import Camera from './Camera';
+import Experience from './Experience';
+import Sizes from './Utils/Sizes';
 
 export default class Renderer {
   experience: Experience;
@@ -33,7 +33,7 @@ export default class Renderer {
     this.instance.toneMappingExposure = 1.75;
     this.instance.shadowMap.enabled = true;
     this.instance.shadowMap.type = THREE.PCFSoftShadowMap;
-    this.instance.setClearColor("#211d20");
+    this.instance.setClearColor('#211d20');
     this.instance.setSize(this.sizes.width, this.sizes.height);
     this.instance.setPixelRatio(Math.min(this.sizes.pixelRatio, 2));
   }

@@ -1,4 +1,4 @@
-import EventEmitter from "./EventEmitter";
+import EventEmitter from './EventEmitter';
 
 export default class Time extends EventEmitter {
   start: number;
@@ -25,7 +25,7 @@ export default class Time extends EventEmitter {
     this.current = currentTime;
     this.elapsed = this.current - this.start;
 
-    this.trigger("tick");
+    this.trigger('tick');
     window.requestAnimationFrame(() => {
       this.tick();
     });
