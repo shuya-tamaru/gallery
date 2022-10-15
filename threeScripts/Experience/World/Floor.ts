@@ -21,11 +21,11 @@ export default class Floors {
     this.setGeometry();
     // this.setTextures();
     this.setMaterial();
-    this.setMesh();
+    // this.setMesh();
   }
 
   setGeometry() {
-    this.geometry = new THREE.PlaneGeometry(70, 40);
+    this.geometry = new THREE.PlaneGeometry(70, 40, 1, 1);
   }
 
   setTextures() {
@@ -43,23 +43,25 @@ export default class Floors {
   }
 
   setMaterial() {
-    this.material = new THREE.MeshStandardMaterial({ color: '#f0f8ff' });
+    this.material = new THREE.MeshStandardMaterial({ color: '#ffffff' });
     // this.material = new THREE.ShaderMaterial
     //   ({
     //     transparent: true,
+    //     side: THREE.DoubleSide,
     //     uniforms: {
     //       uAlpha: { value: 1.0 },
-    //       uColor1: { value: new THREE.Color('#ff0000') },
-    //       uColor2: { value: new THREE.Color('#ff0000') },
+    //       uColor1: { value: new THREE.Color('#f0f8ff') },
+    //       uColor2: { value: new THREE.Color('#ffffff') },
     //     },
     //     vertexShader: `
-    //       varying vec2 vUv;
+    //     varying vec2 vUv;
     //       void main()
     //       {
     //         vec4 modelPosition = modelMatrix * vec4(position, 1.0);
     //         vec4 viewPosition = viewMatrix * modelPosition;
-    //         vec4 projectedPosition = projectionMatrix * viewPosition;
-    //         gl_Position = projectedPosition;
+    //         vec4 projectionPosition = projectionMatrix * viewPosition;
+
+    //         gl_Position = projectionPosition;
     //         vUv = uv;
     //       }
     //   `,
@@ -71,19 +73,19 @@ export default class Floors {
 
     //       void main()
     //       {
-    //           float strength = distance(vUv, vec2(0.5));
-    //           vec3 color = mix(uColor1, uColor2, strength - 0.4);
-    //           gl_FragColor = vec4(color, uAlpha);
+    //         float strength = distance(vUv, vec2(0.5));
+    //         vec3 color = mix(uColor1, uColor2, strength);
+    //         gl_FragColor = vec4(color, uAlpha);
     //       }
     //   `
     //   })
   }
 
+
   setMesh() {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.mesh.rotation.x = -Math.PI * 0.5;
-    this.mesh.rotation.z = -Math.PI * 0.1;
-    this.mesh.position.set(0, -2.4, 0);
+    this.mesh.position.set(0, -0.5, 0);
     this.mesh.receiveShadow = true;
     this.scene.add(this.mesh);
   }

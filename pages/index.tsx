@@ -5,10 +5,10 @@ import styles from '../styles/Home.module.css';
 import Experience from '../threeScripts/Experience/Experience';
 import DetailPage from './components/detailPage';
 import PageButtons from './components/pageButtons';
+import { CurrentTargetprovider } from './context/CurrentTargetContext';
 
 const Home: NextPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [target, setTarget] = useState<number>(0);
 
   useEffect(() => {
     const canvas = document.querySelector('#canvas') as HTMLCanvasElement;
@@ -24,8 +24,10 @@ const Home: NextPage = () => {
           </span>
         </div>
         <div id='loadingBar' className={styles.loadingBar}></div>
-        <PageButtons onOpen={onOpen} target={target} setTarget={setTarget} />
-        <DetailPage isOpen={isOpen} onClose={onClose} target={target} setTarget={setTarget} />
+        <CurrentTargetprovider>
+          <PageButtons onOpen={onOpen} />
+          <DetailPage isOpen={isOpen} onClose={onClose} />
+        </CurrentTargetprovider>
       </ChakraProvider>
     </>
   );

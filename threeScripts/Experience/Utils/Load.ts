@@ -61,7 +61,7 @@ export default class Load {
       uniforms: {
         uAlpha: { value: 1.0 },
         uColor1: { value: new THREE.Color('#ffffff') },
-        uColor2: { value: new THREE.Color('#778899') },
+        uColor2: { value: new THREE.Color('#ffff00') },
       },
       vertexShader: `
             varying vec2 vUv;
@@ -80,7 +80,7 @@ export default class Load {
             void main()
             {
                 float strength = distance(vUv, vec2(0.5));
-                vec3 color = mix(uColor1, uColor2, strength - 0.4);
+                vec3 color = mix(uColor1, uColor2, strength - 0.42);
                 gl_FragColor = vec4(color, uAlpha);
             }
         `,
@@ -89,7 +89,7 @@ export default class Load {
       transparent: true,
       uniforms: {
         uAlpha: { value: 1.0 },
-        uColor1: { value: new THREE.Color('#c0c0c0') },
+        uColor1: { value: new THREE.Color('#ffffe0') },
         uColor2: { value: new THREE.Color('#ffffff') },
       },
       vertexShader: `
@@ -111,7 +111,9 @@ export default class Load {
 
             void main()
             {
-                vec3 color = mix(uColor1, uColor2, vUv.y);
+                float strength = distance(vUv, vec2(0.5));
+
+                vec3 color = mix(uColor1, uColor2, strength + 0.2 );
                 gl_FragColor = vec4(color, uAlpha);
             }
         `,
@@ -122,7 +124,7 @@ export default class Load {
     this.overlayMesh = new THREE.Mesh(this.overlayGeometry, this.overlayMaterial);
     this.overlayMesh2 = new THREE.Mesh(this.overlayGeometry2, this.overlayMaterial2);
     this.overlayMesh2.receiveShadow = true;
-    this.overlayMesh2.position.set(0.0, 0.0, -10.0);
+    this.overlayMesh2.position.set(0.0, 0.0, -12.0);
     this.scene.add(this.overlayMesh);
     this.scene.add(this.overlayMesh2);
   }

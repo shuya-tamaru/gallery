@@ -1,19 +1,18 @@
 import { Button, Flex } from '@chakra-ui/react';
-import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 
-
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React from 'react';
+import { useCurrentTarget, useCurrentTargetUpdate } from '../context/CurrentTargetContext';
 
 const styles = {
   borderRadius: '50%',
-  opacity: '0.7',
+  bg: 'rgba(255,255,255,0.5)',
   ml: '6px',
   w: '40px',
   h: '40px',
   p: '0',
   fontSize: '20px',
-  color: '#666',
+  color: 'black',
   transition: '0.25s',
   fontFamily: 'Playfair Display',
   textAline: "center",
@@ -21,18 +20,16 @@ const styles = {
 
 type Props = {
   onOpen: () => void;
-  target: number;
-  setTarget: Dispatch<SetStateAction<number>>
 };
 
-const PageButtons = ({ onOpen, target, setTarget }: Props) => {
+const PageButtons = ({ onOpen }: Props) => {
   const buttonNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-
+  const target = useCurrentTarget();
+  const setTarget = useCurrentTargetUpdate();
 
   const getButtonNum = (e: any) => {
     e.preventDefault();
     const id: number = Number(e.currentTarget.id.substr(10));
-
     switch (id) {
       case 0: {
         const newTarget = target === 0 ? 14 : target - 1;
@@ -50,7 +47,6 @@ const PageButtons = ({ onOpen, target, setTarget }: Props) => {
       }
     }
   };
-  console.log(target)
 
   return (
     <>
@@ -72,7 +68,7 @@ const PageButtons = ({ onOpen, target, setTarget }: Props) => {
               onClick={(e) => { onOpen(); getButtonNum(e); }}
               id={`pageButton${num}`}
               sx={styles}
-              _hover={{ opacity: '1.0', transform: 'scale(1.1)' }}
+              _hover={{ bg: 'rgba(255,255,255,1.0)', transform: 'scale(1.2)' }}
             >
               {children}
             </Button>
