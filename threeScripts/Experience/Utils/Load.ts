@@ -17,9 +17,11 @@ export default class Load {
   overlayMaterial2!: THREE.ShaderMaterial;
   overlayMesh2!: THREE.Mesh<any, any>;
   buttonContainer: HTMLDivElement;
+  canvas: HTMLCanvasElement | undefined;
 
   constructor() {
     this.experience = new Experience();
+    this.canvas = this.experience.canvas;
     this.scene = this.experience.scene;
     this.loadingBar = document.querySelector('#loadingBar') as HTMLDivElement;
     this.loadingText = document.querySelector('#loadingText') as HTMLDivElement;
@@ -28,6 +30,7 @@ export default class Load {
 
     this.loadingManager = new THREE.LoadingManager(
       () => {
+        this.canvas!.style.background = "linear-gradient(#ffffff,#e6e6fa)";
         this.text.style.cursor = 'pointer';
         this.text.innerHTML = 'Go to Gallery';
         this.loadingText.addEventListener('click', () => {
@@ -61,7 +64,7 @@ export default class Load {
       uniforms: {
         uAlpha: { value: 1.0 },
         uColor1: { value: new THREE.Color('#ffffff') },
-        uColor2: { value: new THREE.Color('#ffff00') },
+        uColor2: { value: new THREE.Color('#191970') },
       },
       vertexShader: `
             varying vec2 vUv;
@@ -89,7 +92,7 @@ export default class Load {
       transparent: true,
       uniforms: {
         uAlpha: { value: 1.0 },
-        uColor1: { value: new THREE.Color('#ffffe0') },
+        uColor1: { value: new THREE.Color('#f0f8ff') },
         uColor2: { value: new THREE.Color('#ffffff') },
       },
       vertexShader: `
@@ -126,6 +129,6 @@ export default class Load {
     this.overlayMesh2.receiveShadow = true;
     this.overlayMesh2.position.set(0.0, 0.0, -12.0);
     this.scene.add(this.overlayMesh);
-    this.scene.add(this.overlayMesh2);
+    // this.scene.add(this.overlayMesh2);
   }
 }

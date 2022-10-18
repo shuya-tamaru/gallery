@@ -24,21 +24,21 @@ export default class Camera {
     this.cameraPosIndex = 0;
 
     this.cameraPos = [
-      { x: 0, y: 4, z: 8.5 }, //initial 0
-      { x: -5, y: 0.5, z: 3 }, //gallery 1
-      { x: -3, y: 2.3, z: 3 }, //movinSphere 2
-      { x: -0.5, y: 1.4, z: 3 }, //hexDome 3
-      { x: 1.6, y: 0.5, z: 3 }, //twisArc 4
-      { x: 4.2, y: 1.4, z: 3 }, //curtain 5
+      { x: 0, y: 3.8, z: 7.9 }, //initial 0
+      { x: -4.5, y: 0.5, z: 3 }, //gallery 1
+      { x: -2.8, y: 2.3, z: 3 }, //movinSphere 2
+      { x: -0.3, y: 1.4, z: 3 }, //hexDome 3
+      { x: 2.2, y: 0.5, z: 3 }, //twisArc 4
+      { x: 4.6, y: 1.4, z: 3 }, //curtain 5
       { x: 6.0, y: 3.5, z: 3.2 }, //lamp 6
-      { x: 3.2, y: 4.0, z: 3.0 }, //pipe 7
-      { x: 1.0, y: 3.2, z: 3.0 }, //feather 8
+      { x: 3.45, y: 4.0, z: 3.0 }, //pipe 7
+      { x: 0.9, y: 3.1, z: 3.0 }, //feather 8
       { x: -1.5, y: 4.0, z: 3.0 }, //ribbon 9
-      { x: -4.1, y: 4.2, z: 3.2 }, //waffle 10
-      { x: -3.1, y: 7.0, z: 3.2 }, //origami 11
-      { x: -0.8, y: 6.0, z: 3.2 }, //town 12
-      { x: 1.8, y: 5.8, z: 3.2 }, //deformSphere 13
-      { x: 4.4, y: 6.4, z: 3.2 }, //fin 14
+      { x: -4.1, y: 4.3, z: 3.3 }, //waffle 10
+      { x: -2.8, y: 7.0, z: 3.0 }, //origami 11
+      { x: -0.4, y: 6.0, z: 3.2 }, //town 12
+      { x: 2.2, y: 5.85, z: 3.0 }, //deformSphere 13
+      { x: 4.6, y: 6.35, z: 3.0 }, //fin 14
     ];
 
     this.setInstance();

@@ -29,10 +29,10 @@ export default class Model {
     this.modelTree = this.resources.items.treeModel.scene;
     this.model.scale.set(1, 1, 1);
     this.model.rotation.y = -Math.PI * 0.5;
-    this.modelTree.position.set(0, -2, -1);
+    this.modelTree.position.set(0, 0, 4);
     this.modelTree.rotation.y = -Math.PI * 0.5;
     this.scene.add(this.model);
-    this.scene.add(this.modelTree);
+    // this.scene.add(this.modelTree);
 
     this.model.traverse((child: Child) => {
       if (child instanceof THREE.Mesh) {
