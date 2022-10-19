@@ -19,31 +19,35 @@ export default class Floors {
     this.resources = this.experience.resources;
 
     this.setGeometry();
-    // this.setTextures();
+    this.setTextures();
     this.setMaterial();
-    // this.setMesh();
+    this.setMesh();
   }
 
   setGeometry() {
-    this.geometry = new THREE.PlaneGeometry(70, 40, 1, 1);
+    this.geometry = new THREE.PlaneGeometry(100, 100, 1, 1);
   }
 
   setTextures() {
     this.textures = {};
-    this.textures.color = this.resources.items.grassColorTexture;
+    this.textures.color = this.resources.items.dirtColor;
     this.textures.color.encoding = THREE.sRGBEncoding;
-    this.textures.color.repeat.set(1.5, 1.5);
+    this.textures.color.repeat.set(20, 20);
     this.textures.color.wrapS = THREE.RepeatWrapping;
     this.textures.color.wrapT = THREE.RepeatWrapping;
 
-    this.textures.normal = this.resources.items.grassNormalTexture;
-    this.textures.normal.repeat.set(1.5, 1.5);
+    this.textures.normal = this.resources.items.dirtNormal;
+    this.textures.normal.repeat.set(20, 20);
     this.textures.normal.wrapS = THREE.RepeatWrapping;
     this.textures.normal.wrapT = THREE.RepeatWrapping;
   }
 
   setMaterial() {
-    this.material = new THREE.MeshStandardMaterial({ color: '#ffffff' });
+    this.material = new THREE.MeshStandardMaterial({
+      map: this.textures.color,
+      normalMap: this.textures.normal
+    });
+    // this.material.color.set("#ffffff");
     // this.material = new THREE.ShaderMaterial
     //   ({
     //     transparent: true,

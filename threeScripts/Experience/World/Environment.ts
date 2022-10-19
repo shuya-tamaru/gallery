@@ -36,7 +36,7 @@ export default class Environment {
 
   setEnvironmentMap() {
     this.environmentMap = {};
-    this.environmentMap.intensity = 0.6;
+    this.environmentMap.intensity = 1.0;
     this.environmentMap.texture = this.resources.items.environmentMapTexture;
     this.environmentMap.texture.encodeing = THREE.sRGBEncoding;
 

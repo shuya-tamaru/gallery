@@ -11,7 +11,7 @@ export const listData: ListType[] = [
     title: 'Gallery',
     youtubeLink: 'https://www.youtube.com/c/studioTama',
     blogLink: 'https://styublog.com/',
-    src: '/images/deformSurf.png',
+    src: '/images/top.png',
     description:
       'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
   },
@@ -21,7 +21,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/gh-moving-face/',
     src: '/images/movingFace.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This is a tutorial for regularly moving a triangular prism that generates a sphere.',
   },
   {
     title: 'Hexagon Dome',
@@ -29,7 +29,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/hexagon-dome/',
     src: '/images/hexDome.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This tutorial is to create a dome with random hexagonal holes',
   },
   {
     title: 'Twisted Arc Pavilion',
@@ -37,7 +37,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/twisted-arc-pavilion/',
     src: '/images/twisArc.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This tutorial is to generate pavilion using arcs. Easy to implement with few components.',
   },
   {
     title: 'How to create Curtain',
@@ -45,7 +45,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/curtain/',
     src: '/images/curtain.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This tutorial is to generate curtains using kangaroo2 plugin',
   },
   {
     title: 'Paper Lamp Shade',
@@ -53,7 +53,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/paper-lamp-shade/',
     src: '/images/paperLamp.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This tutorial is to make a paper lampshade. Implemented with 21 components.',
   },
   {
     title: 'Pipe Connection',
@@ -61,7 +61,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/pipe-connection/',
     src: '/images/pipeConnection.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This is a tutorial that uses the plug-in monoceros and builds a program so that modularized pipes are always closed.',
   },
   {
     title: 'Glass Feather',
@@ -69,7 +69,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/glass-feather/',
     src: '/images/glassFeather.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This tutorial is to create glass feather using vector fields.',
   },
   {
     title: 'Ribbon Object',
@@ -77,7 +77,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/ribbon-object/',
     src: '/images/ribbonObject.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This is a tutorial to generate ribbon-like objects using kangaroo2 plugin',
   },
   {
     title: 'Waffle Tree',
@@ -85,7 +85,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/waffle-tree/',
     src: '/images/waffleTree.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This is to create a waffle structure.',
   },
   {
     title: 'Origami Fold',
@@ -93,7 +93,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/origami-fold/',
     src: '/images/origami.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This is a tutorial to generate a sphere that looks like an origami.',
   },
   {
     title: 'Growing Town',
@@ -101,7 +101,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/growing-town/',
     src: '/images/growingTown.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This tutorial uses the monoceros plug-in to generate a city that spreads out like a torus.',
   },
   {
     title: 'Deformed Sphere Surface',
@@ -109,14 +109,14 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/wavy-ball/',
     src: '/images/deformSurf.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'This is a tutorial for deforming the surface of a sphere.',
   },
   {
     title: 'Thank you',
     youtubeLink: 'https://www.youtube.com/c/studioTama',
     blogLink: 'https://styublog.com/',
-    src: '/images/deformSurf.png',
+    src: '/images/summary.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      '',
   },
 ];

@@ -30,7 +30,7 @@ export default class Load {
 
     this.loadingManager = new THREE.LoadingManager(
       () => {
-        this.canvas!.style.background = "linear-gradient(#ffffff,#e6e6fa)";
+        this.canvas!.style.background = "linear-gradient(#ffffff,#f0ffff)";
         this.text.style.cursor = 'pointer';
         this.text.innerHTML = 'Go to Gallery';
         this.loadingText.addEventListener('click', () => {
