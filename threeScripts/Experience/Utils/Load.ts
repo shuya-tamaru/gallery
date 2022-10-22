@@ -41,7 +41,7 @@ export default class Load {
         window.setTimeout(() => {
           this.loadingBar.classList.add('ended');
           this.loadingBar.style.transform = '';
-        }, 1000);
+        }, 300);
       },
       (itemUrl, itemsLoaded, itemsTotal) => {
         const progressRation = itemsLoaded / itemsTotal;

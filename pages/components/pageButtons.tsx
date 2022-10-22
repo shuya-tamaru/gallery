@@ -1,15 +1,13 @@
-import { Button, Flex } from '@chakra-ui/react';
+import { AspectRatio, Box, Flex } from '@chakra-ui/react';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCurrentTarget, useCurrentTargetUpdate } from '../context/CurrentTargetContext';
 
 const styles = {
   borderRadius: '50%',
   bg: 'rgba(255,255,255,0.5)',
-  ml: '6px',
-  w: '40px',
-  h: '40px',
+  ml: '3px',
   p: '0',
   fontSize: '20px',
   color: 'black',
@@ -20,12 +18,20 @@ const styles = {
 
 type Props = {
   onOpen: () => void;
+  isOpen: boolean;
 };
 
-const PageButtons = ({ onOpen }: Props) => {
+const PageButtons = ({ onOpen, isOpen }: Props) => {
   const buttonNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   const target = useCurrentTarget();
   const setTarget = useCurrentTargetUpdate();
+  const [barWidth, setBawrWidth] = useState<string>("100%");
+
+  useEffect(() => {
+    !isOpen ? setBawrWidth('100%') : setBawrWidth('75%')
+  }, [isOpen]);
+
+
 
   const getButtonNum = (e: any) => {
     e.preventDefault();
@@ -52,7 +58,7 @@ const PageButtons = ({ onOpen }: Props) => {
     <>
       <Flex
         id='buttonContainer'
-        w='100%'
+        w={barWidth}
         margin='0 auto'
         position='absolute'
         bottom='2%'
@@ -60,18 +66,20 @@ const PageButtons = ({ onOpen }: Props) => {
         display='none'
       >
         {buttonNum.map((num) => {
-          const children = num === 0 ? <IoMdArrowDropleft size={25} /> : num === 15 ? <IoMdArrowDropright size={25} /> : num;
+          const children = num === 0 ? <IoMdArrowDropleft size={20} /> : num === 15 ? <IoMdArrowDropright size={20} /> : num;
           const button = (
-            <Button
-              key={num}
-              className="button"
-              onClick={(e) => { onOpen(); getButtonNum(e); }}
-              id={`pageButton${num}`}
-              sx={styles}
-              _hover={{ bg: 'rgba(255,255,255,1.0)', transform: 'scale(1.2)' }}
-            >
-              {children}
-            </Button>
+            <AspectRatio key={num} w={{ base: '30px', md: '30px', lg: '40px' }} ratio={1} ml="6px">
+              <Box
+                fontSize={{ base: '4px', md: '6px', lg: '10px' }}
+                className="button"
+                onClick={(e) => { onOpen(); getButtonNum(e); }}
+                id={`pageButton${num}`}
+                sx={styles}
+                _hover={{ bg: 'rgba(255,255,255,1.0)', transform: 'scale(1.2)' }}
+              >
+                {children}
+              </Box>
+            </AspectRatio>
           );
           return button;
         })}

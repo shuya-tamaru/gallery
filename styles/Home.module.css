@@ -18,9 +18,11 @@
   
 }
 
+
+
  .loadingBar {
-  position: absolute;
-  top: 47%;
+  position: relative;
+  top: 50%;
   width: 100%;
   height: 2px;
   background: black;
@@ -41,6 +43,7 @@
   top: 40%;
   width: 100%;
   font-size: 2rem;
+  padding: 0;
   text-align: center;
   color:black;
   font-family: 'Playfair Display', serif;
@@ -60,6 +63,10 @@
   color: #7f7fff;
 }
 
+.phoneIcon {
+  animation:1s linear infinite alternate rotation;
+}
+
 
 
 @keyframes flash {
@@ -70,4 +77,9 @@
   50% {
     opacity: 0.5;
   }
+}
+
+@keyframes rotation{
+  0%{ transform:rotate(0);}
+  100%{ transform:rotate(90deg); }
 }
