@@ -34,7 +34,11 @@ export default class Raycast {
     this.standardMaterial = new THREE.MeshStandardMaterial({ color: "#696969" })
     this.standardTextureMaterial = new THREE.MeshStandardMaterial();
 
-    this.rayIcon();
+    const agent = navigator.userAgent;
+    if (!(agent.indexOf('iPhone') > 0 || agent.indexOf('iPad') > 0 || agent.indexOf('Android') > 0 || agent.indexOf('Mobile') > 0)) {
+      this.rayIcon();
+    }
+
   }
 
   rayIcon() {
@@ -95,6 +99,7 @@ export default class Raycast {
               break;
           }
         } else {
+          console.log('else')
           this.canvas!.onclick = () => { };
           iconArray.map((icon) => {
             if (icon.name === "insta") {
