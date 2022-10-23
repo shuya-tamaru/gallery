@@ -7,12 +7,12 @@ const DisplayAlertPage = () => {
   return (
     <Flex h="100vh" bg="linear-gradient(#f0f8ff,#d1e8ff)" justify="center" alignItems="center" >
       <Box display="grid" placeItems="center" >
-        <Text color="#333" fontWeight="800">Please turn the screen horizontally</Text>
+        <Text color="#333" fontSize={{ base: 'xl', md: '3xl', lg: '4xl' }} fontWeight="800">Please turn the screen horizontally</Text>
         <Box className={styles.phoneIcon}>
-          <GiSmartphone size={100} color={"666"} />
+          <GiSmartphone size={150} color={"666"} />
         </Box>
       </Box>
-    </Flex>
+    </Flex >
   )
 }
 

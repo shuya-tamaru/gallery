@@ -1,7 +1,6 @@
 import { AspectRatio, Box, Flex } from '@chakra-ui/react';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 
-import React, { useEffect, useState } from 'react';
 import { useCurrentTarget, useCurrentTargetUpdate } from '../context/CurrentTargetContext';
 
 const styles = {
@@ -14,6 +13,7 @@ const styles = {
   transition: '0.25s',
   fontFamily: 'Playfair Display',
   textAline: "center",
+  cursor: "pointer"
 };
 
 type Props = {
@@ -25,13 +25,6 @@ const PageButtons = ({ onOpen, isOpen }: Props) => {
   const buttonNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   const target = useCurrentTarget();
   const setTarget = useCurrentTargetUpdate();
-  const [barWidth, setBawrWidth] = useState<string>("100%");
-
-  useEffect(() => {
-    !isOpen ? setBawrWidth('100%') : setBawrWidth('75%')
-  }, [isOpen]);
-
-
 
   const getButtonNum = (e: any) => {
     e.preventDefault();
@@ -58,7 +51,7 @@ const PageButtons = ({ onOpen, isOpen }: Props) => {
     <>
       <Flex
         id='buttonContainer'
-        w={barWidth}
+        w='100%'
         margin='0 auto'
         position='absolute'
         bottom='2%'
@@ -72,7 +65,7 @@ const PageButtons = ({ onOpen, isOpen }: Props) => {
               <Box
                 fontSize={{ base: '4px', md: '6px', lg: '10px' }}
                 className="button"
-                onClick={(e) => { onOpen(); getButtonNum(e); }}
+                onClick={num === 1 ? (e) => { getButtonNum(e) } : (e) => { onOpen(); getButtonNum(e); }}
                 id={`pageButton${num}`}
                 sx={styles}
                 _hover={{ bg: 'rgba(255,255,255,1.0)', transform: 'scale(1.2)' }}

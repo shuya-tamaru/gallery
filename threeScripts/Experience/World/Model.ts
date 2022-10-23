@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 
 import Experience from '../Experience';
+import Raycast from '../Utils/Raycast';
 import Resources from '../Utils/Resources';
 import Time from '../Utils/Time';
 
@@ -14,12 +15,27 @@ export default class Model {
   model!: THREE.Group;
   modelTree!: THREE.Group;
   textures: any;
+  raycast: Raycast;
+  room!: THREE.Mesh;
+  louver!: THREE.Mesh;
+  objectDarkColor!: THREE.Mesh;
+  objectLightColor!: THREE.Mesh;
+  tree!: THREE.Mesh;
+  leaves!: THREE.Mesh;
+  youtube!: THREE.Mesh;
+  insta!: THREE.Mesh;
+  twitter!: THREE.Mesh;
+  web!: THREE.Mesh;
+  github!: THREE.Mesh;
+  pinterest!: THREE.Mesh;
+  intersects!: THREE.Intersection<THREE.Object3D<THREE.Event>>[];
 
   constructor() {
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
     this.time = this.experience.time;
+    this.raycast = this.experience.raycast;
 
     this.setModel();
   }
@@ -46,49 +62,62 @@ export default class Model {
       }
     });
 
-    const room = this.model.children.find((child) => child.name === 'room') as THREE.Mesh;
-    this.setTextrue(room, 'room');
+    this.room = this.model.children.find((child) => child.name === 'room') as THREE.Mesh;
+    this.setTextrue(this.room, 'room');
 
-    const louver = this.model.children.find((child) => child.name === 'louver') as THREE.Mesh;
-    this.setTextrue(louver, 'louver');
+    this.louver = this.model.children.find((child) => child.name === 'louver') as THREE.Mesh;
+    this.setTextrue(this.louver, 'louver');
 
-
-    const objectsDarkColor = this.model.children.find(
-      (child) => child.name === 'objectsDarkColor',
+    this.objectDarkColor = this.model.children.find(
+      (child) => child.name === 'objectDarkColor',
     ) as THREE.Mesh;
-    this.setTextrue(objectsDarkColor, 'objectsDarkColor');
+    this.setTextrue(this.objectDarkColor, 'objectDarkColor');
 
-    const objectsMiddleColor = this.model.children.find(
-      (child) => child.name === 'objectsMiddleColor',
+    this.objectLightColor = this.model.children.find(
+      (child) => child.name === 'objectLightColor',
     ) as THREE.Mesh;
-    this.setTextrue(objectsMiddleColor, 'objectsMiddleColor');
+    this.setTextrue(this.objectLightColor, 'objectLightColor');
 
-    const objectsLightColor = this.model.children.find(
-      (child) => child.name === 'objectsLightColor',
-    ) as THREE.Mesh;
-    this.setTextrue(objectsLightColor, 'objectsLightColor');
+    this.tree = this.modelTree.children.find((child) => child.name === 'tree') as THREE.Mesh;
+    this.setTextrue(this.tree, 'tree');
 
-    const tree = this.modelTree.children.find((child) => child.name === 'tree') as THREE.Mesh;
-    this.setTextrue(tree, 'tree');
+    this.leaves = this.modelTree.children.find((child) => child.name === 'leaves') as THREE.Mesh;
+    this.setTextrue(this.leaves, 'leaves');
 
-    const leaves = this.modelTree.children.find((child) => child.name === 'leaves') as THREE.Mesh;
-    this.setTextrue(leaves, 'leaves');
+    this.youtube = this.model.children.find((child) => child.name === 'youtube') as THREE.Mesh;
+    this.setTextrue(this.youtube, 'youtube');
+
+    this.insta = this.model.children.find((child) => child.name === 'insta') as THREE.Mesh;
+    this.setTextrue(this.insta, 'insta');
+
+    this.pinterest = this.model.children.find((child) => child.name === 'pinterest') as THREE.Mesh;
+    this.setTextrue(this.pinterest, 'pinterest');
+
+    this.twitter = this.model.children.find((child) => child.name === 'twitter') as THREE.Mesh;
+    this.setTextrue(this.twitter, 'twitter');
+
+    this.web = this.model.children.find((child) => child.name === 'web') as THREE.Mesh;
+    this.setTextrue(this.web, 'web');
+
+    this.github = this.model.children.find((child) => child.name === 'github') as THREE.Mesh;
+    this.setTextrue(this.github, 'github');
   }
 
   setTextrue(mesh: THREE.Mesh, name: string) {
-
-
     let color = '';
     if (name === 'room') {
       color = '#ffffff';
     } else if (name === 'louver' || name === 'tree') {
       color = '#f0f8ff';
-    } else if (name === 'objectsDarkColor') {
+    } else if (name === 'objectDarkColor') {
       color = '#696969';
-    } else if (name === 'objectsMiddleColor' || name === 'leaves') {
+    } else if (name === 'leaves') {
       color = '#a9a9a9';
-    } else if (name === 'objectsLightColor') {
+    } else if (name === 'objectLightColor') {
       color = '#ffffff';
+    } else {
+      //sns
+      color = '#696969';;
     }
 
     if (mesh) {
@@ -100,54 +129,3 @@ export default class Model {
     }
   }
 }
-
-
-    // const curtain = this.model.children.find((child) => child.name === 'curtain') as THREE.Mesh;
-    // this.setTextrue(curtain, 'curtain');
-
-    // const deformSphere = this.model.children.find((child) => child.name === 'deformSphere') as THREE.Mesh;
-    // this.setTextrue(deformSphere, 'deformSphere');
-
-    // const feather = this.model.children.find((child) => child.name === 'feather') as THREE.Mesh;
-    // this.setTextrue(feather, 'feather');
-
-    // const town = this.model.children.find((child) => child.name === 'town') as THREE.Mesh;
-    // this.setTextrue(town, 'town');
-
-    // const dome = this.model.children.find((child) => child.name === 'dome') as THREE.Mesh;
-    // this.setTextrue(dome, 'dome');
-
-    // const icons = this.model.children.find((child) => child.name === 'icons') as THREE.Mesh;
-    // this.setTextrue(icons, 'icons');
-
-    // const movingFace = this.model.children.find((child) => child.name === 'movingFace') as THREE.Mesh;
-    // this.setTextrue(movingFace, 'movingFace');
-
-    // const origami = this.model.children.find((child) => child.name === 'origami') as THREE.Mesh;
-    // this.setTextrue(origami, 'origami');
-
-    // const pipe = this.model.children.find((child) => child.name === 'pipe') as THREE.Mesh;
-    // this.setTextrue(pipe, 'pipe');
-
-    // const paperLamp = this.model.children.find((child) => child.name === 'lamp') as THREE.Mesh;
-    // this.setTextrue(paperLamp, 'paperLamp');
-
-    // const texts = this.model.children.find((child) => child.name === 'texts') as THREE.Mesh;
-    // this.setTextrue(texts, 'texts');
-
-    // const twisArc = this.model.children.find((child) => child.name === 'twisArc') as THREE.Mesh;
-    // this.setTextrue(twisArc, 'twisArc');
-
-    // const waffle = this.model.children.find((child) => child.name === 'waffle') as THREE.Mesh;
-    // this.setTextrue(waffle, 'waffle');
-
-    // const ribbon = this.model.children.find((child) => child.name === 'ribbon') as THREE.Mesh;
-    // this.setTextrue(ribbon, 'ribbon');
-
-
-    // const textures = this.resources.items[name]
-    // textures.encoding = THREE.sRGBEncoding;
-    // textures.repeat.set(1.5, 1.5);
-    // textures.wrapS = THREE.RepeatWrapping;
-    // textures.wrapT = THREE.RepeatWrapping;
-    // textures.flipY = false;

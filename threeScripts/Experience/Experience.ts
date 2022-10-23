@@ -6,6 +6,7 @@ import Sizes from './Utils/Sizes';
 import Time from './Utils/Time';
 import World from './World/World';
 import { sources } from './sources';
+import Raycast from './Utils/Raycast';
 
 let instance: Experience | null = null;
 
@@ -17,6 +18,7 @@ export default class Experience {
   camera!: Camera;
   renderer!: Renderer;
   world!: World;
+  raycast!: Raycast;
   resources!: Resources;
 
   constructor(canvas?: HTMLCanvasElement) {
@@ -31,7 +33,6 @@ export default class Experience {
     this.sizes = new Sizes();
     this.time = new Time();
     this.scene = new THREE.Scene();
-    // this.scene.background = new THREE.Color("#ffffff")
     this.resources = new Resources(sources);
     this.camera = new Camera();
     this.renderer = new Renderer();

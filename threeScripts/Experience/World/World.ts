@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 
 import Experience from '../Experience';
+import Raycast from '../Utils/Raycast';
 import Resources from '../Utils/Resources';
 import Environment from './Environment';
 import Floors from './Floor';
@@ -15,6 +16,7 @@ export default class World {
   floor!: Floors;
   galleryFloor!: GalleryFloor;
   model!: Model;
+  rascast!: Raycast;
 
   constructor() {
     this.experience = new Experience();
@@ -23,8 +25,8 @@ export default class World {
 
     this.resources.on('ready', () => {
       this.floor = new Floors();
-      // this.galleryFloor = new GalleryFloor();
       this.model = new Model();
+      this.rascast = new Raycast();
       this.environment = new Environment();
 
       console.log('reso ready');

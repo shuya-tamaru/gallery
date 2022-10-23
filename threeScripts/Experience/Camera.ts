@@ -25,7 +25,7 @@ export default class Camera {
 
     this.cameraPos = [
       { x: 0, y: 3.8, z: 7.9 }, //initial 0
-      { x: -4.5, y: 0.5, z: 3 }, //gallery 1
+      { x: -4.7, y: 0.5, z: 3 }, //gallery 1
       { x: -2.8, y: 2.3, z: 3 }, //movinSphere 2
       { x: -0.3, y: 1.4, z: 3 }, //hexDome 3
       { x: 2.2, y: 0.5, z: 3 }, //twisArc 4

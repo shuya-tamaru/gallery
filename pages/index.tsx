@@ -1,7 +1,7 @@
 import { ChakraProvider, useDisclosure } from '@chakra-ui/react';
 
 import type { NextPage } from 'next';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from '../styles/Home.module.css';
 import Experience from '../threeScripts/Experience/Experience';
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
     })
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (currentScreenRatio > 1 && !webgl) {
       const canvas = document.querySelector('#canvas') as HTMLCanvasElement;
       const experience = new Experience(canvas);

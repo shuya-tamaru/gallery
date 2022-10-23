@@ -18,8 +18,6 @@
   
 }
 
-
-
  .loadingBar {
   position: relative;
   top: 50%;
@@ -50,17 +48,48 @@
   cursor: default;
 }
 
-.youtube, .blog  {
+.title {
+  font-family: serif;
+  font-weight: 800;
+}
+
+.desc {
+  font-family: serif;
+  font-weight: 500;
+
+}
+
+.youtube, .blog, .twitter, .pinterest, .github, .insta  {
   color: #666;
   transition: color 0.4s;
   cursor: pointer;
   margin-right: 10px;
 }
+
+.insta {
+  border-radius: 10px;
+  transition: all 0.4s;
+}
+
 .youtube:hover {
   color: #c4302b;
 }
 .blog:hover {
   color: #7f7fff;
+}
+.twitter:hover {
+  color: #00acee;
+}
+.pinterest:hover {
+  color: #c8232c;
+}
+.github:hover {
+  color: #333;
+}
+
+.insta:hover {
+  color:#fff;
+  background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
 }
 
 .phoneIcon {

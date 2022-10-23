@@ -13,7 +13,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/',
     src: '/images/top.png',
     description:
-      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptionescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
+      'It is a tutorial that divides a sphere into triangles and moves those triangles regularly Implement two types of movement. It has basic contents, It is not that difficult if you understand the data tree.',
   },
   {
     title: 'Moving Face',
@@ -21,7 +21,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/gh-moving-face/',
     src: '/images/movingFace.png',
     description:
-      'This is a tutorial for regularly moving a triangular prism that generates a sphere.',
+      'It is a tutorial that divides a sphere into triangles and moves those triangles regularly Implement two types of movement. This is basic contents, It is not that difficult if you understand the data tree.',
   },
   {
     title: 'Hexagon Dome',
@@ -112,11 +112,11 @@ export const listData: ListType[] = [
       'This is a tutorial for deforming the surface of a sphere.',
   },
   {
-    title: 'Thank you',
+    title: '',
     youtubeLink: 'https://www.youtube.com/c/studioTama',
     blogLink: 'https://styublog.com/',
     src: '/images/summary.png',
     description:
-      '',
+      'Thank you for visiting my gallery. There are over 70 other tutorials on the website and youtube. Check out the link below for more tutorials.',
   },
 ];

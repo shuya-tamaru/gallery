@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react';
 import {
   Text,
   Slide,
@@ -8,12 +7,17 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
-
 import { BsYoutube } from 'react-icons/bs';
 import { MdOutlineComputer } from 'react-icons/md';
+import { AiFillInstagram } from 'react-icons/ai';
+import { BsPinterest } from 'react-icons/bs';
+import { BsTwitter } from 'react-icons/bs';
+import { BsGithub } from 'react-icons/bs';
+
+import React, { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 import styles from '../../styles/Home.module.css';
-import Link from 'next/link';
 import { listData, ListType } from '../hooks/list';
 import { useCurrentTarget } from '../context/CurrentTargetContext';
 
@@ -26,7 +30,7 @@ type Props = {
 const DetailPage = ({ isOpen, onClose }: Props) => {
 
   const [currentData, setCurrentData] = useState<ListType | null>(null);
-  const [screenWidth, setScreenWidth] = useState<number>(30);
+  const [screenWidth, setScreenWidth] = useState<number>(40);
   const renderFirst = useRef<boolean>(true);
   const target = useCurrentTarget();
 
@@ -37,7 +41,7 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
   }, [])
 
   const iconSize =
-    screenWidth < 480 ? 20
+    screenWidth < 480 ? 30
       : (screenWidth > 480 && screenWidth < 780) ? 30
         : 40;
 
@@ -48,7 +52,7 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
     }
     renderFirst.current
       ? renderFirst.current = false
-      : target === 0
+      : target === 0 || target === 1
         ? isInitialData()
         : setCurrentData(listData[target - 1]);
   }, [target]);
@@ -61,9 +65,10 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
         style={{
           fontFamily: 'Playfair Display',
           zIndex: 10,
-          width: '25%',
+          width: '30%',
+          height: '60%',
           background: 'rgba(255,255,255,0.5)',
-          padding: '2px',
+          padding: '3px',
         }}
       >
         <Flex justify='end'>
@@ -77,15 +82,17 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
           </Button>
         </Flex>
         <Box >
-          <Text fontSize={{ base: 'xl', md: '2xl', lg: '4xl' }} w='100%' textAlign='center'>
+          <Text className={styles.title} color="#333" fontSize={{ base: 'xl', md: '2xl', lg: '4xl' }} w='100%' textAlign='center'>
             {currentData?.title}
           </Text>
           <Box w='100%' p='2.5'>
             <Image src={currentData?.src} shadow='xl' />
           </Box>
-          <Text fontSize={{ base: 'xs', md: 'lg', lg: 'xl' }} p='2.5'>
-            {currentData?.description}
-          </Text>
+          {target === 14 &&
+            <Text className={styles.desc} textAlign="center" color="#333" fontSize={{ base: 'sm', md: 'xl', lg: '2xl' }} p='2.5'>
+              {currentData?.description}
+            </Text>
+          }
           <Flex justify='end'>
             <Link href={`${currentData?.youtubeLink}`} passHref>
               <a target='_blank'>
@@ -97,10 +104,32 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
                 <MdOutlineComputer size={iconSize} className={styles.blog} />
               </a>
             </Link>
+            {target === 14 &&
+              <>
+                <Link href='https://www.instagram.com/shuya_tamaru/' passHref>
+                  <a target='_blank'>
+                    <AiFillInstagram size={iconSize} className={styles.insta} />
+                  </a>
+                </Link>
+                <Link href="https://twitter.com/tama20013" passHref>
+                  <a target='_blank'>
+                    <BsTwitter size={iconSize} className={styles.twitter} />
+                  </a>
+                </Link>
+                <Link href='https://www.pinterest.jp/shuyatamaru/' passHref>
+                  <a target='_blank'>
+                    <BsPinterest size={iconSize} className={styles.pinterest} />
+                  </a>
+                </Link>
+                <Link href='https://github.com/shuya-tamaru' passHref>
+                  <a target='_blank'>
+                    <BsGithub size={iconSize} className={styles.github} />
+                  </a>
+                </Link>
+              </>
+            }
           </Flex>
         </Box>
-
-
       </Slide>
     </>
   );
