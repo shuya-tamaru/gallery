@@ -26,7 +26,6 @@ type Props = {
   onClose: () => void;
 };
 
-
 const DetailPage = ({ isOpen, onClose }: Props) => {
 
   const [currentData, setCurrentData] = useState<ListType | null>(null);
@@ -68,7 +67,6 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
           zIndex: 10,
           width: '30%',
           height: '60%',
-          background: 'radial-gradient(circle, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0) 100%)',
           padding: '3px',
         }}
       >
@@ -83,14 +81,14 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
           </Button>
         </Flex>
         <Box >
-          <Text className={styles.title} color="#333" fontSize={{ base: 'xl', md: '2xl', lg: '4xl' }} w='100%' textAlign='center'>
+          <Text className={styles.title} textShadow="2.5px 2.5px 2px #fff" color="#333" fontSize={{ base: 'xl', md: '2xl', lg: '4xl' }} w='100%' textAlign='center'>
             {currentData?.title}
           </Text>
           <Box w='100%' p='2.5'>
             <Image alt="" src={currentData?.src} shadow='xl' />
           </Box>
           {target === 14 &&
-            <Text className={styles.desc} textAlign="center" color="#333" fontSize={{ base: 'sm', md: 'xl', lg: '2xl' }} p='2.5'>
+            <Text className={styles.desc} textAlign="center" color="#333" textShadow="2.5px 2.5px 2px #fff" fontWeight="800" fontSize={{ base: 'sm', md: 'xl', lg: '2xl' }} p='2.5'>
               {currentData?.description}
             </Text>
           }
@@ -107,7 +105,7 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
             </Link>
             {target === 14 &&
               <>
-                <Link href='https://www.instagram.com/shuya_tamaru/' passHref>
+                <Link href='https://www.instagram.com/shuya_tamaru/' passHref >
                   <a target='_blank'>
                     <AiFillInstagram size={iconSize} className={styles.insta} />
                   </a>

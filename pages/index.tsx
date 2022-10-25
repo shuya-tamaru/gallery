@@ -42,7 +42,7 @@ const Home: NextPage = () => {
   return (
     <>
       <ChakraProvider>
-        <div style={{ display: displayStatus }}>
+        <div className={styles.canvasContainer} style={{ display: displayStatus }}>
           <canvas id='canvas' className={styles.canvas} style={{ position: 'relative', display: displayStatus }}></canvas>
           <div id='loadingText' className={styles.container} >
             <span id='#spanText' className={styles.text}>

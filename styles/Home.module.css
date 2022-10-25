@@ -1,3 +1,8 @@
+.canvasContainer {
+  height: 100vh;
+  width: 100vw;
+}
+
 .container {
   padding: 0 2rem;
 }
@@ -15,7 +20,6 @@
 .canvas {
   width: 100vw;
   height: 100vh;
-  
 }
 
  .loadingBar {
