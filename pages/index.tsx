@@ -15,6 +15,8 @@ const Home: NextPage = () => {
   const [currentScreenRatio, setCurrentScreenRatio] = useState<any>(1.1);
   const [webgl, setWebgl] = useState<any>(null);
   const [displayStatus, setDisplayStatus] = useState<"block" | "none">("block");
+  const [width, setWidth] = useState<number>(window.innerWidth);
+  const [height, setHeight] = useState<number>(window.innerHeight);
 
   useEffect(() => {
     const screenRatio = window.innerWidth / window.innerHeight;
@@ -23,6 +25,11 @@ const Home: NextPage = () => {
     window.addEventListener('resize', () => {
       const screenRatio = window.innerWidth / window.innerHeight;
       setCurrentScreenRatio(screenRatio);
+    })
+
+    window.addEventListener('orientationchange', () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
     })
   }, []);
 
@@ -42,8 +49,8 @@ const Home: NextPage = () => {
   return (
     <>
       <ChakraProvider>
-        <div className={styles.canvasContainer} style={{ display: displayStatus }}>
-          <canvas id='canvas' className={styles.canvas} style={{ position: 'relative', display: displayStatus }}></canvas>
+        <div className={styles.canvasContainer} style={{ display: displayStatus, width, height }}>
+          <canvas id='canvas' className={styles.canvas} style={{ position: 'relative', display: displayStatus, width, height }}></canvas>
           <div id='loadingText' className={styles.container} >
             <span id='#spanText' className={styles.text}>
               Loading...
