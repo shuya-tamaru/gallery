@@ -37,6 +37,7 @@ const Home: NextPage = () => {
     } else {
       setDisplayStatus("none")
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentScreenRatio])
   return (
     <>

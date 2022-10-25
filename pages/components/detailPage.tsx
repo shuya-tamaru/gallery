@@ -55,6 +55,7 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
       : target === 0 || target === 1
         ? isInitialData()
         : setCurrentData(listData[target - 1]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [target]);
 
   return (
