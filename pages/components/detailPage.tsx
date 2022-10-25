@@ -86,7 +86,7 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
             {currentData?.title}
           </Text>
           <Box w='100%' p='2.5'>
-            <Image src={currentData?.src} shadow='xl' />
+            <Image alt="" src={currentData?.src} shadow='xl' />
           </Box>
           {target === 14 &&
             <Text className={styles.desc} textAlign="center" color="#333" fontSize={{ base: 'sm', md: 'xl', lg: '2xl' }} p='2.5'>
