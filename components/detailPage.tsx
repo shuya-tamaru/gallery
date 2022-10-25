@@ -17,7 +17,7 @@ import { BsGithub } from 'react-icons/bs';
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
-import styles from '../../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 import { listData, ListType } from '../hooks/list';
 import { useCurrentTarget } from '../context/CurrentTargetContext';
 

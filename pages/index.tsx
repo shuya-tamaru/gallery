@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react';
 
 import styles from '../styles/Home.module.css';
 import Experience from '../threeScripts/Experience/Experience';
-import DetailPage from './components/detailPage';
-import PageButtons from './components/pageButtons';
-import { CurrentTargetprovider } from './context/CurrentTargetContext';
-import DisplayAlertPage from './components/displayAlertPage';
+import DetailPage from '../components/detailPage';
+import PageButtons from '../components/pageButtons';
+import { CurrentTargetprovider } from '../context/CurrentTargetContext';
+import DisplayAlertPage from '../components/displayAlertPage';
 
 const Home: NextPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

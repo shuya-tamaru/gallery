@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { GiSmartphone } from 'react-icons/gi';
 
-import styles from '../../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 
 const DisplayAlertPage = () => {
   return (
