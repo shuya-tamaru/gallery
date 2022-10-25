@@ -67,7 +67,7 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
           zIndex: 10,
           width: '30%',
           height: '60%',
-          background: 'rgba(255,255,255,0.5)',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0) 100%)',
           padding: '3px',
         }}
       >
