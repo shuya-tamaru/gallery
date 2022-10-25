@@ -99,7 +99,6 @@ export default class Raycast {
               break;
           }
         } else {
-          console.log('else')
           this.canvas!.onclick = () => { };
           iconArray.map((icon) => {
             if (icon.name === "insta") {
