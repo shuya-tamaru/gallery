@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   const [displayStatus, setDisplayStatus] = useState<"block" | "none">("block");
   const [width, setWidth] = useState<number | null>();
   const [height, setHeight] = useState<number | null>();
-
+  
   useEffect(() => {
     const screenRatio = window.innerWidth / window.innerHeight;
     setCurrentScreenRatio(screenRatio)

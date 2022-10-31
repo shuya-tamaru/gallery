@@ -109,7 +109,7 @@ export const listData: ListType[] = [
     blogLink: 'https://styublog.com/wavy-ball/',
     src: '/images/deformSurf.png',
     description:
-      'This is a tutorial for deforming the surface of a sphere.',
+      'This is a tutorial for deforming the surface of a sphere.....',
   },
   {
     title: '',
