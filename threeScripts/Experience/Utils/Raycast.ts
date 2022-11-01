@@ -80,7 +80,7 @@ export default class Raycast {
               this.canvas!.style.cursor = "pointer";
               break;
             case 'twitter':
-              this.canvas!.onclick = () => open('https://twitter.com/tama20013"', '_blank');
+              this.canvas!.onclick = () => open('https://twitter.com/tama20013', '_blank');
               material.color.set(new THREE.Color("#00acee"));
               break;
             case 'github':
