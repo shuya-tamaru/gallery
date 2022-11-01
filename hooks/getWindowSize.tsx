@@ -1,37 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export const getWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
-    _width: 0,
-    _height: 0,
+    width: 0,
+    height: 0,
+    ratio: 1.1,
   });
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       const handleResize = () => {
         setWindowSize({
-          _width: window.innerWidth,
-          _height: window.innerHeight,
+          width: window.innerWidth,
+          height: window.innerHeight,
+          ratio: window.innerWidth / window.innerHeight,
         });
-        
+
         document.body.style.width = `${window.innerWidth}px`;
-        document.body.style.height = `${ window.innerHeight }px`;
+        document.body.style.height = `${window.innerHeight}px`;
       };
-      const handleResize2 = () => {
-        setWindowSize({
-          _width: window.innerWidth,
-          _height: window.innerHeight,
-        });
-
-        document.body.style.width = `${window.innerHeight}px`;
-        document.body.style.height = `${ window.innerWidth }px`;
-      };
-
-      window.addEventListener("resize", handleResize);
-      window.addEventListener('orientationchange', handleResize2);
-
+      window.addEventListener('resize', handleResize);
       handleResize();
-      return () => window.removeEventListener("resize", handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     } else {
       return;
     }
