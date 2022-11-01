@@ -14,8 +14,8 @@ export const getWindowSize = () => {
           _height: window.innerHeight,
         });
         
-        document.body.style.width = `${windowSize._width}px`;
-        document.body.style.height = 'auto';
+        document.body.style.width = `${window.innerWidth}px`;
+        document.body.style.height = `${ window.innerHeight }px`;
       };
 
       window.addEventListener("resize", handleResize);
