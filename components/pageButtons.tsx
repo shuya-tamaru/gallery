@@ -12,8 +12,8 @@ const styles = {
   color: 'black',
   transition: '0.25s',
   fontFamily: 'Playfair Display',
-  textAline: "center",
-  cursor: "pointer"
+  textAline: 'center',
+  cursor: 'pointer',
 };
 
 type Props = {
@@ -22,7 +22,7 @@ type Props = {
 };
 
 const PageButtons = ({ onOpen, isOpen }: Props) => {
-  const buttonNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  const buttonNum = [...Array(16)].map((_, i) => i);
   const target = useCurrentTarget();
   const setTarget = useCurrentTargetUpdate();
 
@@ -37,7 +37,7 @@ const PageButtons = ({ onOpen, isOpen }: Props) => {
       }
       case 15: {
         const newTarget = target === 14 ? 0 : target + 1;
-        setTarget(newTarget)
+        setTarget(newTarget);
         break;
       }
       default: {
@@ -59,13 +59,29 @@ const PageButtons = ({ onOpen, isOpen }: Props) => {
         display='none'
       >
         {buttonNum.map((num) => {
-          const children = num === 0 ? <IoMdArrowDropleft size={20} /> : num === 15 ? <IoMdArrowDropright size={20} /> : num;
+          const children =
+            num === 0 ? (
+              <IoMdArrowDropleft size={20} />
+            ) : num === 15 ? (
+              <IoMdArrowDropright size={20} />
+            ) : (
+              num
+            );
           const button = (
-            <AspectRatio key={num} w={{ base: '30px', md: '30px', lg: '40px' }} ratio={1} ml="6px">
+            <AspectRatio key={num} w={{ base: '30px', md: '30px', lg: '40px' }} ratio={1} ml='6px'>
               <Box
                 fontSize={{ base: '4px', md: '6px', lg: '10px' }}
-                className="button"
-                onClick={num === 1 ? (e) => { getButtonNum(e) } : (e) => { onOpen(); getButtonNum(e); }}
+                className='button'
+                onClick={
+                  num === 1
+                    ? (e) => {
+                        getButtonNum(e);
+                      }
+                    : (e) => {
+                        onOpen();
+                        getButtonNum(e);
+                      }
+                }
                 id={`pageButton${num}`}
                 sx={styles}
                 _hover={{ bg: 'rgba(255,255,255,1.0)', transform: 'scale(1.2)' }}

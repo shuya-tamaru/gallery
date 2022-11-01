@@ -22,7 +22,7 @@
   height: 100vh;
 }
 
- .loadingBar {
+.loadingBar {
   position: relative;
   top: 50%;
   width: 100%;
@@ -39,7 +39,7 @@
   transition: transform 1.5s ease-in-out;
 }
 
-.container{
+.container {
   animation: flash 1s linear infinite;
   position: absolute;
   top: 40%;
@@ -47,7 +47,7 @@
   font-size: 2rem;
   padding: 0;
   text-align: center;
-  color:black;
+  color: black;
   font-family: 'Playfair Display', serif;
   cursor: default;
 }
@@ -60,10 +60,14 @@
 .desc {
   font-family: serif;
   font-weight: 500;
-
 }
 
-.youtube, .blog, .twitter, .pinterest, .github, .insta  {
+.youtube,
+.blog,
+.twitter,
+.pinterest,
+.github,
+.insta {
   color: #666;
   transition: color 0.4s;
   cursor: pointer;
@@ -92,18 +96,24 @@
 }
 
 .insta:hover {
-  color:#fff;
-  background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  color: #fff;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
 }
 
 .phoneIcon {
-  animation:1s linear infinite alternate rotation;
+  animation: 1s linear infinite alternate rotation;
 }
 
-
-
 @keyframes flash {
-  0%,100% {
+  0%,
+  100% {
     opacity: 1;
   }
 
@@ -112,12 +122,16 @@
   }
 }
 
-@keyframes rotation{
-  0%{ transform:rotate(0);}
-  100%{ transform:rotate(90deg); }
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width: 480px) {
   .canvasContainer {
     height: 100vh;
     width: 100vw;
@@ -128,7 +142,7 @@
   }
 }
 
-@media screen and (min-width:480px) and (max-width:780px) {
+@media screen and (min-width: 480px) and (max-width: 780px) {
   .canvasContainer {
     height: 100vh;
     width: 100vw;

@@ -14,31 +14,47 @@ import { getWindowSize } from '../hooks/getWindowSize';
 const Home: NextPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [webgl, setWebgl] = useState<any>(null);
-  const [displayStatus, setDisplayStatus] = useState<"block" | "none">("block");
-  const {height, width, ratio} = getWindowSize();
-  
+  const [displayStatus, setDisplayStatus] = useState<'block' | 'none'>('block');
+  const { height, width, ratio } = getWindowSize();
+
   useEffect(() => {
     if (ratio > 1 && !webgl) {
       const canvas = document.querySelector('#canvas') as HTMLCanvasElement;
       const experience = new Experience(canvas);
       setWebgl(experience);
-      setDisplayStatus("block")
+      setDisplayStatus('block');
     } else if (ratio > 1) {
-      setDisplayStatus("block")
+      setDisplayStatus('block');
     } else {
-      setDisplayStatus("none")
+      setDisplayStatus('none');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ratio])
-  console.log(width)
-  console.log(height)
+  }, [ratio]);
+  console.log(width);
+  console.log(height);
 
   return (
     <>
       <ChakraProvider>
-        <div className={styles.canvasContainer} style={{ display: displayStatus, width: width ? width : "100vw", height: height ? height : "100vh" }}>
-          <canvas id='canvas' className={styles.canvas} style={{ position: 'relative', display: displayStatus, width: width ? width : "100vw", height: height ? height : "100vh" }}></canvas>
-          <div id='loadingText' className={styles.container} >
+        <div
+          className={styles.canvasContainer}
+          style={{
+            display: displayStatus,
+            width: width ? width : '100vw',
+            height: height ? height : '100vh',
+          }}
+        >
+          <canvas
+            id='canvas'
+            className={styles.canvas}
+            style={{
+              position: 'relative',
+              display: displayStatus,
+              width: width ? width : '100vw',
+              height: height ? height : '100vh',
+            }}
+          ></canvas>
+          <div id='loadingText' className={styles.container}>
             <span id='#spanText' className={styles.text}>
               Loading...
             </span>
@@ -49,7 +65,7 @@ const Home: NextPage = () => {
             <DetailPage isOpen={isOpen} onClose={onClose} />
           </CurrentTargetprovider>
         </div>
-        {displayStatus === "none" && <DisplayAlertPage width={width} height={height}/>}
+        {displayStatus === 'none' && <DisplayAlertPage width={width} height={height} />}
       </ChakraProvider>
     </>
   );
