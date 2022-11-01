@@ -19,6 +19,8 @@ export const getWindowSize = () => {
       };
 
       window.addEventListener("resize", handleResize);
+      window.addEventListener('orientationchange', handleResize);
+
       handleResize();
       return () => window.removeEventListener("resize", handleResize);
     } else {
