@@ -116,3 +116,25 @@
   0%{ transform:rotate(0);}
   100%{ transform:rotate(90deg); }
 }
+
+@media screen and (max-width:480px) {
+  .canvasContainer {
+    height: 100vh;
+    width: 100vw;
+  }
+  .canvas {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width:480px) and (max-width:780px) {
+  .canvasContainer {
+    height: 100vh;
+    width: 100vw;
+  }
+  .canvas {
+    width: 100vw;
+    height: 100vh;
+  }
+}

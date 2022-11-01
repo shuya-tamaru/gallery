@@ -9,6 +9,7 @@ import DetailPage from '../components/detailPage';
 import PageButtons from '../components/pageButtons';
 import { CurrentTargetprovider } from '../context/CurrentTargetContext';
 import DisplayAlertPage from '../components/displayAlertPage';
+import { getWindowSize } from '../hooks/getWindowSize';
 
 const Home: NextPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
   const [displayStatus, setDisplayStatus] = useState<"block" | "none">("block");
   const [width, setWidth] = useState<number | null>();
   const [height, setHeight] = useState<number | null>();
+  const {_height, _width} = getWindowSize();
   
   useEffect(() => {
     const screenRatio = window.innerWidth / window.innerHeight;
@@ -24,6 +26,8 @@ const Home: NextPage = () => {
 
     window.addEventListener('resize', () => {
       const screenRatio = window.innerWidth / window.innerHeight;
+      const body = document.body;
+      setWidth(window.innerWidth);
       setCurrentScreenRatio(screenRatio);
     })
 
@@ -49,8 +53,8 @@ const Home: NextPage = () => {
   return (
     <>
       <ChakraProvider>
-        <div className={styles.canvasContainer} style={{ display: displayStatus, width: width ? width : "100vw", height: height ? height : "100vh" }}>
-          <canvas id='canvas' className={styles.canvas} style={{ position: 'relative', display: displayStatus, width: width ? width : "100vw", height: height ? height : "100vh" }}></canvas>
+        <div className={styles.canvasContainer} style={{ display: displayStatus, width: _width ? _width : "100vw", height: _height ? _height : "100vh" }}>
+          <canvas id='canvas' className={styles.canvas} style={{ position: 'relative', display: displayStatus, width: _width ? _width : "100vw", height: _height ? _height : "100vh" }}></canvas>
           <div id='loadingText' className={styles.container} >
             <span id='#spanText' className={styles.text}>
               Loading...
