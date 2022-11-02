@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 export const getWindowSize = () => {
   const initialRender = useRef<boolean>(true);
   const [windowSize, setWindowSize] = useState({
-    width: 0,
-    height: 0,
+    width: 100,
+    height: 100,
     ratio: 1.1,
   });
 
