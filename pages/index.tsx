@@ -30,8 +30,6 @@ const Home: NextPage = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ratio]);
-  console.log(width);
-  console.log(height);
 
   return (
     <>
