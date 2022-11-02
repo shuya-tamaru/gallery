@@ -39,6 +39,8 @@ export const getWindowSize = () => {
             height: window.innerHeight,
             ratio: window.innerWidth / window.innerHeight,
           });
+          document.body.style.width = `${window.innerWidth}px`;
+          document.body.style.height = `${window.innerHeight}px`;
         };
         window.addEventListener('orientationchange', () => {
           setTimeout(handleOrientation, 100);
