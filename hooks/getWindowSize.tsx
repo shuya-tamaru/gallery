@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const getWindowSize = () => {
+  const initialRender = useRef<boolean>(true);
   const [windowSize, setWindowSize] = useState({
     width: 0,
     height: 0,
@@ -8,49 +9,52 @@ export const getWindowSize = () => {
   });
 
   useEffect(() => {
-    const agent = navigator.userAgent;
+    if (initialRender.current) {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const ratio = width / height;
+      setWindowSize({
+        width,
+        height,
+        ratio,
+      });
+      initialRender.current = false;
+      return;
+    }
+
+    const handleSize = (width: number, height: number) => {
+      setWindowSize({
+        width,
+        height,
+        ratio: width / height,
+      });
+      document.body.style.width = `${width}px`;
+      document.body.style.height = `${height}px`;
+    };
 
     if (typeof window !== 'undefined') {
+      const agent = navigator.userAgent;
       if (
-        !(
-          agent.indexOf('iPhone') > 0 ||
-          agent.indexOf('iPad') > 0 ||
-          agent.indexOf('Android') > 0 ||
-          agent.indexOf('Mobile') > 0
-        )
+        !(agent.indexOf('iPhone') > 0 || agent.indexOf('iPad') > 0 || agent.indexOf('Android') > 0 || agent.indexOf('Mobile') > 0)
       ) {
-        const handleResize = () => {
-          setWindowSize({
-            width: window.innerWidth,
-            height: window.innerHeight,
-            ratio: window.innerWidth / window.innerHeight,
-          });
-
-          document.body.style.width = `${window.innerWidth}px`;
-          document.body.style.height = `${window.innerHeight}px`;
-        };
-        window.addEventListener('resize', handleResize);
-        handleResize();
-        return () => window.removeEventListener('resize', handleResize);
-      } else {
-        const handleOrientation = () => {
-          setWindowSize({
-            width: window.innerWidth,
-            height: window.innerHeight,
-            ratio: window.innerWidth / window.innerHeight,
-          });
-          document.body.style.width = `${window.innerWidth}px`;
-          document.body.style.height = `${window.innerHeight}px`;
-        };
-        window.addEventListener('orientationchange', () => {
-          setTimeout(handleOrientation, 100);
+        window.addEventListener('resize', () => {
+          const width = window.innerWidth;
+          const height = window.innerHeight;
+          handleSize(width, height);
         });
-        handleOrientation();
-        return () => screen.orientation.removeEventListener('change', handleOrientation);
+      } else {
+        screen.orientation.addEventListener;
+        window.addEventListener('orientationchange', () => {
+          setTimeout(() => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            handleSize(width, height);
+          }, 100);
+        });
       }
     } else {
       return;
     }
-  }, []);
+  }, [initialRender.current]);
   return windowSize;
 };

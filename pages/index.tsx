@@ -16,6 +16,7 @@ const Home: NextPage = () => {
   const [webgl, setWebgl] = useState<any>(null);
   const [displayStatus, setDisplayStatus] = useState<'block' | 'none'>('block');
   const { height, width, ratio } = getWindowSize();
+  console.log(height, width, ratio);
 
   useEffect(() => {
     if (ratio > 1 && !webgl) {
