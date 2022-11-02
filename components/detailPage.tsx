@@ -1,11 +1,4 @@
-import {
-  Text,
-  Slide,
-  Box,
-  Button,
-  Flex,
-  Image,
-} from '@chakra-ui/react';
+import { Text, Slide, Box, Button, Flex, Image } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 import { BsYoutube } from 'react-icons/bs';
 import { MdOutlineComputer } from 'react-icons/md';
@@ -20,6 +13,7 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import { listData, ListType } from '../hooks/list';
 import { useCurrentTarget } from '../context/CurrentTargetContext';
+import { getWindowSize } from '../hooks/getWindowSize';
 
 type Props = {
   isOpen: boolean;
@@ -27,33 +21,27 @@ type Props = {
 };
 
 const DetailPage = ({ isOpen, onClose }: Props) => {
-
   const [currentData, setCurrentData] = useState<ListType | null>(null);
-  const [screenWidth, setScreenWidth] = useState<number>(40);
+  const { height, width, ratio } = getWindowSize();
+  const [iconSize, setIconsize] = useState<number>(30);
   const renderFirst = useRef<boolean>(true);
   const target = useCurrentTarget();
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      setScreenWidth(window.innerWidth)
-    })
-  }, [])
-
-  const iconSize =
-    screenWidth < 480 ? 30
-      : (screenWidth > 480 && screenWidth < 780) ? 30
-        : 40;
+    const size = width < 480 ? 20 : width > 480 && width < 780 ? 25 : 30;
+    setIconsize(size);
+  }, [width]);
 
   useEffect(() => {
     const isInitialData = () => {
-      setCurrentData(null)
-      onClose()
-    }
+      setCurrentData(null);
+      onClose();
+    };
     renderFirst.current
-      ? renderFirst.current = false
+      ? (renderFirst.current = false)
       : target === 0 || target === 1
-        ? isInitialData()
-        : setCurrentData(listData[target - 1]);
+      ? isInitialData()
+      : setCurrentData(listData[target - 1]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [target]);
 
@@ -71,27 +59,37 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
         }}
       >
         <Flex justify='end'>
-          <Button
-            onClick={onClose}
-            borderRadius='50%'
-            bg='none'
-            _hover={{ bg: 'rgba(255,255,255,0.5)' }}
-          >
+          <Button onClick={onClose} borderRadius='50%' bg='none' _hover={{ bg: 'rgba(255,255,255,0.5)' }}>
             <CloseIcon fontWeight='800' boxSize={3} />
           </Button>
         </Flex>
-        <Box >
-          <Text className={styles.title} textShadow="2.5px 2.5px 2px #fff" color="#333" fontSize={{ base: 'xl', md: '2xl', lg: '4xl' }} w='100%' textAlign='center'>
+        <Box>
+          <Text
+            className={styles.title}
+            textShadow='2.5px 2.5px 2px #fff'
+            color='#333'
+            fontSize={{ base: 'xl', md: '2xl', lg: '4xl' }}
+            w='100%'
+            textAlign='center'
+          >
             {currentData?.title}
           </Text>
           <Box w='100%' p='2.5'>
-            <Image alt="" src={currentData?.src} shadow='xl' />
+            <Image alt='' src={currentData?.src} shadow='xl' />
           </Box>
-          {target === 14 &&
-            <Text className={styles.desc} textAlign="center" color="#333" textShadow="2.5px 2.5px 2px #fff" fontWeight="800" fontSize={{ base: 'sm', md: 'xl', lg: '2xl' }} p='2.5'>
+          {target === 14 && (
+            <Text
+              className={styles.desc}
+              textAlign='center'
+              color='#333'
+              textShadow='2.5px 2.5px 2px #fff'
+              fontWeight='800'
+              fontSize={{ base: 'sm', md: 'md', lg: '2xl' }}
+              p='2.5'
+            >
               {currentData?.description}
             </Text>
-          }
+          )}
           <Flex justify='end'>
             <Link href={`${currentData?.youtubeLink}`} passHref>
               <a target='_blank'>
@@ -103,14 +101,14 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
                 <MdOutlineComputer size={iconSize} className={styles.blog} />
               </a>
             </Link>
-            {target === 14 &&
+            {target === 14 && (
               <>
-                <Link href='https://www.instagram.com/shuya_tamaru/' passHref >
+                <Link href='https://www.instagram.com/shuya_tamaru/' passHref>
                   <a target='_blank'>
                     <AiFillInstagram size={iconSize} className={styles.insta} />
                   </a>
                 </Link>
-                <Link href="https://twitter.com/tama20013" passHref>
+                <Link href='https://twitter.com/tama20013' passHref>
                   <a target='_blank'>
                     <BsTwitter size={iconSize} className={styles.twitter} />
                   </a>
@@ -126,7 +124,7 @@ const DetailPage = ({ isOpen, onClose }: Props) => {
                   </a>
                 </Link>
               </>
-            }
+            )}
           </Flex>
         </Box>
       </Slide>
